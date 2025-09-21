@@ -1,0 +1,1 @@
+# Smart-Mini-Agents-Applying-AI-to-Real-Life-Tasks
