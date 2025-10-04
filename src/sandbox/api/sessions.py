@@ -37,7 +37,7 @@ async def create_session(background_tasks: BackgroundTasks):
                 if response.status_code == 200:
                     client = Sandbox(base_url=base_url)
                     client.sandbox.get_sandbox_context()
-                    session_manager.create_session(session_id, port, str(container.id), client)
+                    session_manager.create_session(session_id, port, str(container.id), client,base_url)
                     logger.info(f"Container ready for session {session_id}")
                     return session_manager.get_session(session_id)
             except requests.exceptions.RequestException:
