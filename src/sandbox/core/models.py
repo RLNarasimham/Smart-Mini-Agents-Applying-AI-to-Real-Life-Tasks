@@ -1,6 +1,6 @@
 # aio_sandbox_service/core/models.py
 from pydantic import BaseModel
-from typing import Optional, Dict, Any
+from typing import Optional, Dict, Any, Literal, List, Union
 from datetime import datetime
 
 class SessionInfo(BaseModel):
@@ -38,3 +38,43 @@ class GenericMCPRequest(BaseModel):
     params: Dict[str, Any]
     # The 'id' can be a string or integer, and is optional for notifications
     id: Optional[int | str] = 1 
+
+class MoveToAction(BaseModel):
+    action_type: Literal["MOVE_TO"]
+    x: int
+    y: int
+
+class ClickAction(BaseModel):
+    action_type: Literal["CLICK"]
+    x: Optional[int] = None
+    y: Optional[int] = None
+    button: Optional[Literal["left", "right", "middle"]] = "left"
+    num_clicks: int = 1
+
+class TypingAction(BaseModel):
+    action_type: Literal["TYPING"]
+    text: str
+    use_clipboard: bool = False
+
+class ScrollAction(BaseModel):
+    action_type: Literal["SCROLL"]
+    dx: int = 0
+    dy: int = 0
+
+class HotkeyAction(BaseModel):
+    action_type: Literal["HOTKEY"]
+    keys: List[str]
+
+class DragToAction(BaseModel):
+    action_type: Literal["DRAG_TO"]
+    x: int
+    y: int
+
+ExecuteBrowserActionRequest = Union[
+    MoveToAction,
+    ClickAction,
+    TypingAction,
+    ScrollAction,
+    HotkeyAction,
+    DragToAction,
+]

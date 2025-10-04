@@ -36,13 +36,14 @@ class SessionManager:
         self.used_ports.discard(port)
 
     def create_session(
-        self, session_id: str, port: int, container_id: str, client: Sandbox
+        self, session_id: str, port: int, container_id: str, client: Sandbox, base_url: str
     ):
         self.sessions[session_id] = {
             "session_id": session_id,
             "port": port,
             "container_id": container_id,
             "client": client,
+            "base_url": base_url,
             "created_at": datetime.now(),
             "last_activity": datetime.now(),
             "status": "active",

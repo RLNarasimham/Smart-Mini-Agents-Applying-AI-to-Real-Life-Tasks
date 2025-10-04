@@ -5,3 +5,4 @@ docker
 pydantic
 python-dotenv
 requests
+websockets
