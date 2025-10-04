@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+agent-sandbox
+docker
+pydantic
+python-dotenv
+requests
