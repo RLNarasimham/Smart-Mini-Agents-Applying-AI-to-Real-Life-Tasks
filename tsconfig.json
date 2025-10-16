@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    /* JavaScript target and libraries */
+    "target": "ES2020",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+
+    /* Module and resolution settings for Vite */
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "isolatedModules": true,
+    "useDefineForClassFields": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    /* Type checking */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "skipLibCheck": true,
+
+    /* Path aliases */
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["*"]
+    }
+  },
+  "include": ["src/**/*.{ts,tsx}"],
+  "exclude": ["node_modules", "dist"]
+}
