@@ -120,6 +120,21 @@ export function Sidebar({ currentPage, onNavigate, isOpen, onClose }: SidebarPro
             <Calendar className="w-4 h-4" />
             <span>Sandbox</span>
           </button>
+          <button
+            onClick={() => {
+              onNavigate('pricing');
+              onClose();
+            }}
+            className={`w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg transition-colors ${
+              currentPage === 'pricing'
+                ? 'bg-primary/10 text-primary border border-primary/20'
+                : 'text-foreground hover:text-foreground hover:bg-muted/50'
+            }`}
+            aria-label="Navigate to Pricing"
+          >
+            <FileText className="w-4 h-4" />
+            <span>Pricing</span>
+          </button>
         </nav>
       </div>
 
